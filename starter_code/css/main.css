@@ -1,8 +1,37 @@
 body{
-  background-color: coral;
+  background-color: silver;
 }
 
 h1 {
-  font: 50px solid black;
+  font: 50px solid coral;
   text-align: center;
+}
+
+td {
+  border: 2px solid seagreen;
+  background-color: white;
+  padding: 20px;
+  background-color: seagreen;
+  color: silver;
+}
+
+td:hover{
+  background-color: green;
+}
+
+.mainDiv {
+  border: 2px solid none;
+     text-align: center;
+      padding-top: 20px
+}
+.cell {
+  border: 2px solid seagreen;
+  display: inline-block;
+  padding: 30px;
+}
+
+.cell:hover{
+  background-color: seagreen;
+}
+
 }
