@@ -9,9 +9,8 @@ word.push(letter)
 console.log(word)
 }
 
-var letter = $("table")
+//var letter = $("table")
+//selectLetter(letter)
 
-selectLetter(letter)
 
-
-if you click on table, it pushes it into emprt array
+//if you click on table, it pushes it into emprt array
