@@ -6,8 +6,7 @@ console.log("loaded")
 var abcBoard = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
 "Q","R","S","T","U","V","W","X","Y","Z"];
 var letterBox = ["","","","",""];
-var word = [""];
-var searchedWord = ["f","i","s","h"];
+
 var letter = abcBoard[0];
 
 //for(i=0; i<abcBoard.length; i++){
@@ -46,22 +45,8 @@ var gameWon = function(){
 
 // if the input equals an index of the searched word, the same index of
 // printed word will equal the input.
-var input = "s";
-var search = ["f","i","s","h"];
-var word = ["","","",""];
 
-if (input === search[0]){
-    word[0] = input;
-}else if (input === search[1]){
-    word[1] = input;
-}else if (input === search[2]){
-    word[2] = input;
-}else if (input === search[3]){
-    word[3] = input;
-}else {
-    false;
-}
-console.log(word)
+
 
 //var letter = $("table")
 //selectLetter(letter)
@@ -100,11 +85,32 @@ document.getElementById("letterE").addEventListener("click", getLetter);
 document.getElementById("letterF").addEventListener("click", getLetter);
 document.getElementById("letterG").addEventListener("click", getLetter);
 document.getElementById("letterH").addEventListener("click", getLetter);
-
+document.getElementById("letterI").addEventListener("click", getLetter);
+document.getElementById("letterS").addEventListener("click", getLetter);
 
 function getLetter(evt){
     input = this.innerHTML
     console.log(input);
+
+var word = ["","","",""];
+var search = ["F","I","S","H"];
+
+ if (input === search[0]){
+  document.getElementById("cell0").innerHTML = input;
+  word[0] = input;
+}else if (input === search[1]){
+    document.getElementById("cell1").innerHTML = input;
+  word[1] = input;
+}else if (input === search[2]){
+    document.getElementById("cell2").innerHTML = input;
+  word[2] = input;
+}else if (input === search[3]){
+   document.getElementById("cell3").innerHTML = input;
+  word[3] = input;
+}else {
+    false;
+}
+console.log(word)
 };
 //word.push(squareD.innerHTML)
 
