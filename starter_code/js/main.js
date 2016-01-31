@@ -1,6 +1,9 @@
 console.log("loaded")
 
 
+var word = [];
+var randomWord = ["F","I","S","H"];
+
 // Data Model
 
 var abcBoard = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
@@ -86,32 +89,51 @@ document.getElementById("letterF").addEventListener("click", getLetter);
 document.getElementById("letterG").addEventListener("click", getLetter);
 document.getElementById("letterH").addEventListener("click", getLetter);
 document.getElementById("letterI").addEventListener("click", getLetter);
+document.getElementById("letterJ").addEventListener("click", getLetter);
+document.getElementById("letterK").addEventListener("click", getLetter);
+document.getElementById("letterL").addEventListener("click", getLetter);
+document.getElementById("letterM").addEventListener("click", getLetter);
+document.getElementById("letterN").addEventListener("click", getLetter);
+document.getElementById("letterO").addEventListener("click", getLetter);
+document.getElementById("letterP").addEventListener("click", getLetter);
+document.getElementById("letterQ").addEventListener("click", getLetter);
+document.getElementById("letterR").addEventListener("click", getLetter);
 document.getElementById("letterS").addEventListener("click", getLetter);
+document.getElementById("letterT").addEventListener("click", getLetter);
+document.getElementById("letterU").addEventListener("click", getLetter);
+document.getElementById("letterV").addEventListener("click", getLetter);
+document.getElementById("letterW").addEventListener("click", getLetter);
+document.getElementById("letterX").addEventListener("click", getLetter);
+document.getElementById("letterY").addEventListener("click", getLetter);
+document.getElementById("letterZ").addEventListener("click", getLetter);
 
 function getLetter(evt){
     input = this.innerHTML
     console.log(input);
 
-var word = ["","","",""];
-var search = ["F","I","S","H"];
-
- if (input === search[0]){
+ if (input === randomWord[0]){
   document.getElementById("cell0").innerHTML = input;
   word[0] = input;
-}else if (input === search[1]){
+} if (input === randomWord[1]){
     document.getElementById("cell1").innerHTML = input;
   word[1] = input;
-}else if (input === search[2]){
+} if (input === randomWord[2]){
     document.getElementById("cell2").innerHTML = input;
   word[2] = input;
-}else if (input === search[3]){
+} if (input === randomWord[3]){
    document.getElementById("cell3").innerHTML = input;
   word[3] = input;
-}else {
-    false;
 }
 console.log(word)
 };
+
+var getWinner = function(){
+if(word.toString() == randomWord.toString()){
+  console.log("You Win!");
+}
+}
+
+
 //word.push(squareD.innerHTML)
 
 //document.getElementById("a").addEventListener("click", getLetter);
@@ -131,19 +153,7 @@ console.log(word)
 //}
 
 
-// each cell has an assigned letter, which equals the letter thta has
-//been assigned to that index of the letterBox.
-var renderBoard = function() {
-  document.getElementById("cell0").textContent = letterBox[0];
-  document.getElementById("cell1").textContent = letterBox[1];
-  document.getElementById("cell2").textContent = letterBox[2];
-  document.getElementById("cell3").textContent = letterBox[3];
-  document.getElementById("cell4").textContent = letterBox[4];
-  document.getElementById("cell5").textContent = letterBox[5];
-  document.getElementById("cell6").textContent = letterBox[6];
-  document.getElementById("cell7").textContent = letterBox[7];
-  document.getElementById("cell8").textContent = letterBox[8];
-}
+
 
 
 
