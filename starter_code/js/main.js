@@ -81,29 +81,48 @@ console.log(word)
 //document.getElementById("c").innerHTML = abcBoard[2];
 //document.getElementById("d").innerHTML = abcBoard[3];
 
-var squareA = document.getElementById("a")
-squareA.innterHTML = "a"
-var squareB = document.getElementById("b")
-squareA.innterHTML = "b"
-var squareC = document.getElementById("c")
-squareA.innterHTML = "c"
-var squareD = document.getElementById("d")
-squareA.innterHTML = "d"
+//var squareA = document.getElementById("a")
+//squareA.innterHTML = "a"
+//var squareB = document.getElementById("b")
+//squareA.innterHTML = "b"
+//var squareC = document.getElementById("c")
+//squareA.innterHTML = "c"
+//var squareD = document.getElementById("d")
+//squareA.innterHTML = "d"
 
 
-word.push(squareD.innerHTML)
+// depending on which letter you click, the console will print that specific letter.
+document.getElementById("letterA").addEventListener("click", getLetter);
+document.getElementById("letterB").addEventListener("click", getLetter);
+document.getElementById("letterC").addEventListener("click", getLetter);
+document.getElementById("letterD").addEventListener("click", getLetter);
+document.getElementById("letterE").addEventListener("click", getLetter);
+document.getElementById("letterF").addEventListener("click", getLetter);
+document.getElementById("letterG").addEventListener("click", getLetter);
+document.getElementById("letterH").addEventListener("click", getLetter);
 
-document.getElementById("a").addEventListener("click", getLetter);
-document.getElementById("b").addEventListener("click", getLetter);
-document.getElementById("c").addEventListener("click", getLetter);
-document.getElementById("d").addEventListener("click", getLetter);
 
+function getLetter(evt){
+    input = this.innerHTML
+    console.log(input);
+};
+//word.push(squareD.innerHTML)
 
-function getLetter() {
+//document.getElementById("a").addEventListener("click", getLetter);
+//document.getElementById("b").addEventListener("click", getLetter);
+//document.getElementById("c").addEventListener("click", getLetter);
+//document.getElementById("d").addEventListener("click", getLetter);
 
-document.getElementById("cell0").innerHTML= abcBoard[0];
+//function getLetter(number) {
 
-}
+//return document.getElementById("box"+number).innerHTML= input;
+
+//}
+//function getLetter() {
+
+//document.getElementById("cell0").innerHTML= abcBoard[0];
+
+//}
 
 
 // each cell has an assigned letter, which equals the letter thta has
