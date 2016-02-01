@@ -2,16 +2,31 @@ console.log("loaded")
 
 
 var word = [];
-var randomWord = [["F","I","S","H"],["T","I","G","E","R"],["B","E","A","R"]];
+var category =[];
+var randomWord = [["F","I","S","H"],["T","I","G","E","R"],["B","E","A","R"],["B","A","N","G","K","O","C","K"]];
+var randomCategory = [["ANIMALS"],["CITIES"],["COUNTRIES"]];
 
 
-var random = function (min, max) {
-  return Math.floor(Math.random() * (randomWord.length - 0));
+var startGame = function() {
+  won = false;
+  randomWord = [];
+  randomC();
+  randomW();
+
 }
 
-var currentWord = randomWord[random()]
+var randomW = function (min, max) {
+  return Math.floor(Math.random() * (randomWord.length - 0));
+}
+var currentWord = randomWord[randomW()];
 
 
+var randomC = function (min, max) {
+  return Math.floor(Math.random() * (randomCategory.length - 0));
+}
+  var currentCategory =  randomCategory[randomC()];
+
+  document.getElementById("category").innerHTML = currentCategory;
 // Data Model
 
 var abcBoard = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
@@ -24,10 +39,7 @@ var letter = abcBoard[0];
     //console.log(abcBoard[i])
 //}
 
-var startGame = function() {
-  won = false;
-  letterBox = ["","","","",""]
-}
+
 
 // Each move a certain letter is set into the letterBox
 var move = function(cellIndex){
@@ -119,25 +131,23 @@ function getLetter(evt){
     input = this.innerHTML
     console.log(input);
 
- if (input === currentWord[0]){
-  document.getElementById("cell0").innerHTML = input;
-  word[0] = input;
-} if (input === currentWord[1]){
-    document.getElementById("cell1").innerHTML = input;
-  word[1] = input;
-} if (input === currentWord[2]){
-    document.getElementById("cell2").innerHTML = input;
-  word[2] = input;
-} if (input === currentWord[3]){
-   document.getElementById("cell3").innerHTML = input;
-  word[3] = input;
+
+for(var i= 0; i<currentWord.length; i++){
+ if (input === currentWord[i]){
+  document.getElementById("cell"+i).innerHTML = input;
+  word[i] = input;
+  console.log(word);
+  getWinner();
 }
-console.log(word)
+}
+
+
 };
 
 var getWinner = function(){
 if(word.toString() == currentWord.toString()){
-  console.log("You Win!");
+  alert("You Win!");
+  startGame();
 }
 }
 

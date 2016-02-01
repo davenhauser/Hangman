@@ -25,7 +25,7 @@ td:hover{
       padding-top: 20px
 }
 .cell {
-  border: 2px solid seagreen;
+  border: 2px solid none;
   display: inline-block;
   padding: 30px;
 }
