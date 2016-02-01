@@ -2,7 +2,15 @@ console.log("loaded")
 
 
 var word = [];
-var randomWord = ["F","I","S","H"];
+var randomWord = [["F","I","S","H"],["T","I","G","E","R"],["B","E","A","R"]];
+
+
+var random = function (min, max) {
+  return Math.floor(Math.random() * (randomWord.length - 0));
+}
+
+var currentWord = randomWord[random()]
+
 
 // Data Model
 
@@ -111,16 +119,16 @@ function getLetter(evt){
     input = this.innerHTML
     console.log(input);
 
- if (input === randomWord[0]){
+ if (input === currentWord[0]){
   document.getElementById("cell0").innerHTML = input;
   word[0] = input;
-} if (input === randomWord[1]){
+} if (input === currentWord[1]){
     document.getElementById("cell1").innerHTML = input;
   word[1] = input;
-} if (input === randomWord[2]){
+} if (input === currentWord[2]){
     document.getElementById("cell2").innerHTML = input;
   word[2] = input;
-} if (input === randomWord[3]){
+} if (input === currentWord[3]){
    document.getElementById("cell3").innerHTML = input;
   word[3] = input;
 }
@@ -128,7 +136,7 @@ console.log(word)
 };
 
 var getWinner = function(){
-if(word.toString() == randomWord.toString()){
+if(word.toString() == currentWord.toString()){
   console.log("You Win!");
 }
 }
