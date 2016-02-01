@@ -100,48 +100,28 @@ var gameWon = function(){
 
 
 // depending on which letter you click, the console will print that specific letter.
-document.getElementById("letterA").addEventListener("click", getLetter);
-document.getElementById("letterB").addEventListener("click", getLetter);
-document.getElementById("letterC").addEventListener("click", getLetter);
-document.getElementById("letterD").addEventListener("click", getLetter);
-document.getElementById("letterE").addEventListener("click", getLetter);
-document.getElementById("letterF").addEventListener("click", getLetter);
-document.getElementById("letterG").addEventListener("click", getLetter);
-document.getElementById("letterH").addEventListener("click", getLetter);
-document.getElementById("letterI").addEventListener("click", getLetter);
-document.getElementById("letterJ").addEventListener("click", getLetter);
-document.getElementById("letterK").addEventListener("click", getLetter);
-document.getElementById("letterL").addEventListener("click", getLetter);
-document.getElementById("letterM").addEventListener("click", getLetter);
-document.getElementById("letterN").addEventListener("click", getLetter);
-document.getElementById("letterO").addEventListener("click", getLetter);
-document.getElementById("letterP").addEventListener("click", getLetter);
-document.getElementById("letterQ").addEventListener("click", getLetter);
-document.getElementById("letterR").addEventListener("click", getLetter);
-document.getElementById("letterS").addEventListener("click", getLetter);
-document.getElementById("letterT").addEventListener("click", getLetter);
-document.getElementById("letterU").addEventListener("click", getLetter);
-document.getElementById("letterV").addEventListener("click", getLetter);
-document.getElementById("letterW").addEventListener("click", getLetter);
-document.getElementById("letterX").addEventListener("click", getLetter);
-document.getElementById("letterY").addEventListener("click", getLetter);
-document.getElementById("letterZ").addEventListener("click", getLetter);
+
+for (var i= 0; i<26; i++){
+document.getElementById("letter"+i).addEventListener("click", getLetter);
+}
 
 function getLetter(evt){
-    input = this.innerHTML
+    var input = this.innerHTML
     console.log(input);
 
+
+// prints each letter to the correct cell
 
 for(var i= 0; i<currentWord.length; i++){
  if (input === currentWord[i]){
   document.getElementById("cell"+i).innerHTML = input;
   word[i] = input;
   console.log(word);
-  getWinner();
+
 }
 }
 
-
+getWinner();
 };
 
 var getWinner = function(){
