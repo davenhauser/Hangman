@@ -6,7 +6,6 @@ var category =[];
 var randomWord = [["F","I","S","H"],["T","I","G","E","R"],["B","E","A","R"],["B","A","N","G","K","O","C","K"]];
 var randomCategory = [["ANIMALS"],["CITIES"],["COUNTRIES"]];
 
-
 var startGame = function() {
   won = false;
   randomWord = [];
@@ -27,7 +26,7 @@ var randomC = function (min, max) {
   var currentCategory =  randomCategory[randomC()];
 
   document.getElementById("category").innerHTML = currentCategory;
-// Data Model
+  // Data Model
 
 var abcBoard = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
 "Q","R","S","T","U","V","W","X","Y","Z"];
@@ -114,13 +113,15 @@ function getLetter(evt){
 
 for(var i= 0; i<currentWord.length; i++){
  if (input === currentWord[i]){
-  document.getElementById("cell"+i).innerHTML = input;
-  word[i] = input;
+   document.getElementById("cell"+i).innerHTML = input;
+   word[i] = input;
   console.log(word);
-
+} else {
+  var attempts = 9;
+  attempts = attempts -1;
 }
 }
-
+document.getElementById("attemptfield").innerHTML = attempts;
 getWinner();
 };
 
@@ -149,7 +150,6 @@ if(word.toString() == currentWord.toString()){
 //document.getElementById("cell0").innerHTML= abcBoard[0];
 
 //}
-
 
 
 
