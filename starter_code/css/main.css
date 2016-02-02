@@ -1,10 +1,17 @@
 body{
-  background-color: silver;
+  background-color: coral;
 }
 
 h1 {
   font: 50px solid coral;
   text-align: center;
+  font-family: "Arial Black", Gadget, sans-serif;
+
+}
+
+table {
+  border: 5px solid black;
+  float: left;
 }
 
 td {
@@ -34,4 +41,18 @@ td:hover{
   background-color: seagreen;
 }
 
+img {
+  border: 10px solid black;
+  float: right;
+}
+
+.attemptfield {
+  font-size: 15px;
+  color:blue;
+}
+
+.category {
+  font-size: 15px;
+  color: green;
+  text-align: center;
 }

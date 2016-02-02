@@ -5,8 +5,13 @@ var word = [];
 var category =[];
 var randomWord = [["F","I","S","H"],["T","I","G","E","R"],["B","E","A","R"],["B","A","N","G","K","O","C","K"]];
 var randomCategory = [["ANIMALS"],["CITIES"],["COUNTRIES"]];
-var attempts = 9;
+var attempts = 6;
 
+document.getElementById("attemptfield").innerHTML = "Attempts: " + attempts;
+
+createImage = document.createElement('img')
+   createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Hangman-0.png'
+  document.getElementById('hangmanimage').appendChild(createImage);
 
 var startGame = function() {
   won = false;
@@ -27,7 +32,7 @@ var randomC = function (min, max) {
 }
   var currentCategory =  randomCategory[randomC()];
 
-  document.getElementById("category").innerHTML = currentCategory;
+  document.getElementById("category").innerHTML = "Category: " + currentCategory;
   // Data Model
 
 var abcBoard = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
@@ -123,11 +128,32 @@ function getLetter(evt){
     }
   }
   if (!tellMeIfFound) { // checking if it is "not false"
-    attempts -= 1;      // if tellMeIfFound is true it will be "not true" - if (tellMeIfFound===false);
+    attempts -= 1;     // if tellMeIfFound is true it will be "not true" - if (tellMeIfFound===false);
+
+  document.getElementById("attemptfield").innerHTML = "Attempts: " + attempts;
+
+for(var i= 0; i<1; i++){
+  document.getElementById('hangmanimage').appendChild(createImage);
+}
   }
 
 
-document.getElementById("attemptfield").innerHTML = "Attempts: " + attempts;
+if (attempts === 6){
+
+   createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Hangman-0.png'
+}else if (attempts === 5){
+   createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/3/30/Hangman-1.png'
+}else if (attempts === 4){
+ createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/7/70/Hangman-2.png'
+}else if (attempts === 3){
+ createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/9/97/Hangman-3.png'
+}else if (attempts === 2){
+ createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/2/27/Hangman-4.png'
+}else if (attempts === 1){
+ createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Hangman-5.png'
+}else if (attempts === 0){
+ createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Hangman-6.png'
+};
 
 
 
