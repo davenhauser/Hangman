@@ -126,6 +126,11 @@ function getLetter(evt){
     attempts -= 1;      // if tellMeIfFound is true it will be "not true" - if (tellMeIfFound===false);
   }
 
+
+document.getElementById("attemptfield").innerHTML = "Attempts: " + attempts;
+
+
+
 // } else if (input !== currentWord[i]){
 //   attempts = attempts - 1;
 
@@ -144,6 +149,10 @@ var getWinner = function(){
 if(word.toString() == currentWord.toString()){
   alert("You Win!");
   startGame();
+} else {
+  if (attempts<=0){
+    alert("You Lose!")
+  }
 }
 }
 
