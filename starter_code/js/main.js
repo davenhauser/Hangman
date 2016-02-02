@@ -5,6 +5,8 @@ var word = [];
 var category =[];
 var randomWord = [["F","I","S","H"],["T","I","G","E","R"],["B","E","A","R"],["B","A","N","G","K","O","C","K"]];
 var randomCategory = [["ANIMALS"],["CITIES"],["COUNTRIES"]];
+var attempts = 9;
+
 
 var startGame = function() {
   won = false;
@@ -107,21 +109,34 @@ document.getElementById("letter"+i).addEventListener("click", getLetter);
 function getLetter(evt){
     var input = this.innerHTML
     console.log(input);
+    var tellMeIfFound = false;
 
 
 // prints each letter to the correct cell
 
-for(var i= 0; i<currentWord.length; i++){
- if (input === currentWord[i]){
-   document.getElementById("cell"+i).innerHTML = input;
-   word[i] = input;
-  console.log(word);
-} else {
-  var attempts = 9;
-  attempts = attempts -1;
-}
-}
-document.getElementById("attemptfield").innerHTML = attempts;
+  for(var i= 0; i<currentWord.length; i++){
+    if(input === currentWord[i]){
+      document.getElementById("cell"+i).innerHTML = input;
+      word[i] = input;
+      console.log(word);
+      tellMeIfFound = true;
+    }
+  }
+  if (!tellMeIfFound) { // checking if it is "not false"
+    attempts -= 1;      // if tellMeIfFound is true it will be "not true" - if (tellMeIfFound===false);
+  }
+
+// } else if (input !== currentWord[i]){
+//   attempts = attempts - 1;
+
+
+
+//   createImage = document.createElement('img')
+//   createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Hangman-0.png'
+//   document.getElementById('hangmanimage').appendChild(createImage);
+//   }
+
+
 getWinner();
 };
 
