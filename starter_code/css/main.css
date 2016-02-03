@@ -6,20 +6,46 @@ h1 {
   font: 50px solid coral;
   text-align: center;
   font-family: "Arial Black", Gadget, sans-serif;
+}
 
+#attemptfield {
+  font-size: 25px;
+  color: black;
+  font-family: "Lucida Calligraphy";
+
+  text-align: center;
+}
+
+#category {
+  font-size: 25px;
+  color: black;
+  font-family: "ALucida Calligraphy";
+  text-align: center;
 }
 
 table {
   border: 5px solid black;
-  float: left;
+  position: relative;
+  top: 50px;
+
+}
+
+img {
+  border: 10px dotted black;
+  float: right;
+  position: relative;
+  right: 350px;
+  top: 100px;
+  padding: 20px;
 }
 
 td {
   border: 2px solid seagreen;
   background-color: white;
-  padding: 20px;
+  padding: 15px;
   background-color: seagreen;
   color: silver;
+
 }
 
 td:hover{
@@ -41,18 +67,4 @@ td:hover{
   background-color: seagreen;
 }
 
-img {
-  border: 10px solid black;
-  float: right;
-}
 
-.attemptfield {
-  font-size: 15px;
-  color:blue;
-}
-
-.category {
-  font-size: 15px;
-  color: green;
-  text-align: center;
-}
