@@ -1,55 +1,67 @@
 body{
-  background-color: coral;
+
+  background-image: url("http://eskipaper.com/images/aurora-borealis-wallpaper-20.jpg");
 }
 
 h1 {
-  font: 50px solid coral;
+  font-size: 50px;
+  color: white;
   text-align: center;
   font-family: "Arial Black", Gadget, sans-serif;
+  text-shadow: -1px 0 turquoise, 0 6px turquoise, 1px 0 turquoise, 0 -1px turquoise;
 }
 
 #attemptfield {
   font-size: 25px;
-  color: black;
+  color: white;
   font-family: "Lucida Calligraphy";
-
   text-align: center;
+  text-shadow: -1px 0 turquoise, 0 2px turquoise, 1px 0 turquoise, 0 -1px turquoise;
+
 }
 
 #category {
   font-size: 25px;
-  color: black;
+  color: white;
   font-family: "ALucida Calligraphy";
   text-align: center;
+    text-shadow: -1px 0 turquoise, 0 2px turquoise, 1px 0 turquoise, 0 -1px turquoise;
+
 }
 
 table {
-  border: 5px solid black;
+  border: 5px solid none;
   position: relative;
-  top: 50px;
+  top: 20px;
+  left: 50px;
 
 }
 
 img {
-  border: 10px dotted black;
   float: right;
   position: relative;
   right: 350px;
-  top: 100px;
+  top: 40px;
   padding: 20px;
+  height: 350px;
+  width: 350px;
 }
 
+
 td {
-  border: 2px solid seagreen;
-  background-color: white;
+  border: 2px solid turquoise;
   padding: 15px;
-  background-color: seagreen;
-  color: silver;
+  color: white;
+  background-color: transparent;
+  border-radius: 25%;
+  font-family: Times;
+  font-weight: bold;
 
 }
 
 td:hover{
-  background-color: green;
+  background-color: turquoise;
+  color: black;
 }
 
 .mainDiv {
@@ -61,10 +73,7 @@ td:hover{
   border: 2px solid none;
   display: inline-block;
   padding: 30px;
-}
-
-.cell:hover{
-  background-color: seagreen;
+  font-size: 15px;
 }
 
 
