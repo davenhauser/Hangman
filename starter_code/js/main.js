@@ -4,12 +4,14 @@ var word = [];
 var currentWord;
 var randomWord;
 var randomCategory;
-var categories = ["ANIMALS", "CITIES", "COUNTRIES","RIVERS"];
+var categories = ["ANIMALS","CITIES","COUNTRIES","RIVERS"];
 var attempts;
 var won;
 var createImage;
 var $resetButton = $("#button")
 var button;
+var audio;
+
 //var abcBoard = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
 //"Q","R","S","T","U","V","W","X","Y","Z"];
 
@@ -72,6 +74,7 @@ var getRW = function (){
 
 for (var i= 0; i<26; i++){
   $("#letter"+i).on("click", getLetter);
+
 }
 
 function getLetter(evt){
@@ -98,7 +101,7 @@ function getLetter(evt){
     attempts -= 1;     // if tellMeIfFound is true it will be "not true" - if (tellMeIfFound===false);
     if (attempts<0){
       attempts = 0
-      alert("You have already lost!")
+      alert("No cheating! You have already lost!")
 
     }
   }
@@ -131,28 +134,34 @@ var updateStats = function() {
 var getWinner = function(){
   if(word.toString() === currentWord.toString()){
     $createImage.attr("src","http://49.media.tumblr.com/tumblr_m571uudsz71rv5j9yo1_500.gif");
-     $("#attemptfield").html("You win!");
-     $("#category").empty();
+    $("#attemptfield").html("You win!");
+    $("#category").empty();
+    audio = $("#sound")[0];
+    audio.play();
     $button = $("<button>Start Over </button>");
-      $button.attr("id", "button1");
-      $('h1').append($button);
-      var refreshScreen = function(evt) {
-        window.location = window.location;
-      };
-      $("#button1").on("click",refreshScreen);
+    $button.attr("id", "button1");
+    $('h1').append($button);
+    var refreshScreen = function(evt) {
+      window.location = window.location;
+    };
+    $("#button1").on("click",refreshScreen);
   } else if (attempts===0){
     $("#attemptfield").html("You lose!");
     $("#category").empty();
-    setTimeout(function() {
-    $createImage.attr("src","http://45.media.tumblr.com/078de4dcc012c65f726f72c0b4910a8d/tumblr_nr53ie9eQn1re5o97o1_500.gif");
-      $button = $("<button>Start Over </button>");
+    //$audio = $("<audio></audio>")
+    //$audio.attr("src","file:///Users/davenhauser/Music/iTunes/iTunes%20Media/Music/SoundBible.com/Unknown%20Album/Button%20Push%20Sound-SoundBible.com-685166460.mp3")
+    //$("sound").append($audio);
+    //$audio.attr("preload", "auto")
+
+      setTimeout(function() {
+      $createImage.attr("src","http://45.media.tumblr.com/078de4dcc012c65f726f72c0b4910a8d/tumblr_nr53ie9eQn1re5o97o1_500.gif");
+      $button = $("<button>Start Over</button>");
       $button.attr("id", "button1");
       $('h1').append($button);
       var refreshScreen = function(evt) {
         window.location = window.location;
-      };
-      $("#button1").on("click",refreshScreen);
-    // startGame();
+      }
+        $("#button1").on("click",refreshScreen);
     }, 1000);
   }
 }
