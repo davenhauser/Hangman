@@ -13,37 +13,63 @@ h1 {
   text-shadow: -1px 0 turquoise, 0 6px turquoise, 1px 0 turquoise, 0 -1px turquoise;
 }
 
+#mainCell {
+  clear: both;
+  margin-bottom: 20px;
+}
+
 #attemptfield {
-  font-size: 25px;
-  color: #FFFF99;;
+  font-size: 30px;
+  color: turquoise;;
   font-family: "Lucida Calligraphy";
   text-align: center;
-  text-shadow: -1px 0 turquoise, 0 0px turquoise, 1px 0 turquoise, 0 -1px turquoise;
+  text-shadow: -1px 0 white, 0 0px white, 1px 0 white, 0 -1px white;
 
 }
 
 #category {
-  font-size: 25px;
-  color: #FFFF99;
+  font-size: 30px;
+  color: turquoise;
   font-family: "ALucida Calligraphy";
   text-align: center;
-  text-shadow: -1px 0 turquoise, 0 0px turquoise, 1px 0 turquoise, 0 -1px turquoise;
+  text-shadow: -1px 0 white, 0 0px white, 1px 0 white, 0 -1px white;
 
+}
+
+#imagewrap {
+  width: 100%;
+  margin-left: -55px;
+}
+
+#hangmanimage {
+  width: 370px;
+  margin: 0 auto;
+}
+
+#shell {
+  position: relative;
+  width: 100%;
+  max-height: 390px;
+}
+
+#inner {
+  margin: 0 auto;
+  white-space: nowrap;
 }
 
 table {
   border: 5px solid none;
-  position: relative;
+  /*position: relative;*/
   top: 10px;
   left: 60px;
-
+  float: left;
 }
 
 img {
-  float: right;
-  position: relative;
-  right: 500px;
-  top: 20px;
+  /*float: right;*/
+  /*position: relative;*/
+  /*right: 500px;*/
+  /*top: 20px;*/
   padding: 10px;
   height: 350px;
   width: 350px;
@@ -88,11 +114,12 @@ td:hover{
 
 }
 .cell {
-  border-bottom: 2px solid turquoise;
+  border-bottom: 3px solid turquoise;
   display: inline-block;
   padding: 30px;
   font-size:40px;
   width: 30px;
+
 }
 
 .cell.no-border {

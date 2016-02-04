@@ -8,7 +8,7 @@ var categories = ["ANIMALS", "CITIES", "COUNTRIES","RIVERS"];
 var attempts;
 var won;
 var createImage;
-var resetButton = document.getElementById("button")
+var $resetButton = $("#button")
 var button;
 //var abcBoard = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
 //"Q","R","S","T","U","V","W","X","Y","Z"];
@@ -71,7 +71,7 @@ var getRW = function (){
   // depending on which letter you click, the console will print that specific letter.
 
 for (var i= 0; i<26; i++){
-  document.getElementById("letter"+i).addEventListener("click", getLetter);
+  $("#letter"+i).on("click", getLetter);
 }
 
 function getLetter(evt){
@@ -85,9 +85,9 @@ function getLetter(evt){
 
   for(var i= 0; i<currentWord.length; i++){
     if(input === currentWord[i]){
-      var el = document.getElementById("cell"+i);
-      el.innerHTML = input;
-      $(el).addClass('no-border');
+      var $el = $("#cell"+i);
+      $el.html(input);
+      $($el).addClass('no-border');
       word[i] = input;
       console.log(word);
       tellMeIfFound = true;
@@ -105,34 +105,34 @@ function getLetter(evt){
 
 //for (var i=6; i>=0; i--)
   if (attempts === 6){
-     createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Hangman-0.png'
+     $createImage.attr("src",'https://upload.wikimedia.org/wikipedia/commons/8/8b/Hangman-0.png');
   }else if (attempts === 5){
-     createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/3/30/Hangman-1.png'
+     $createImage.attr("src",'https://upload.wikimedia.org/wikipedia/commons/3/30/Hangman-1.png');
   }else if (attempts === 4){
-   createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/7/70/Hangman-2.png'
+    $createImage.attr("src", 'https://upload.wikimedia.org/wikipedia/commons/7/70/Hangman-2.png');
   }else if (attempts === 3){
-   createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/9/97/Hangman-3.png'
+   $createImage.attr("src",'https://upload.wikimedia.org/wikipedia/commons/9/97/Hangman-3.png');
   }else if (attempts === 2){
-   createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/2/27/Hangman-4.png'
+   $createImage.attr("src", 'https://upload.wikimedia.org/wikipedia/commons/2/27/Hangman-4.png');
   }else if (attempts === 1){
-   createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Hangman-5.png'
+   $createImage.attr("src",'https://upload.wikimedia.org/wikipedia/commons/6/6b/Hangman-5.png');
   }else if (attempts === 0){
-   createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Hangman-6.png'
+   $createImage.attr("src",'https://upload.wikimedia.org/wikipedia/commons/d/d6/Hangman-6.png');
   }
   updateStats();
   getWinner();
 }
 
 var updateStats = function() {
-  document.getElementById("attemptfield").innerHTML = "Attempts: " + attempts;
-  document.getElementById("category").innerHTML = "Category: " + randomCategory;
+  $("#attemptfield").html("Attempts: " + attempts);
+  $("#category").html("Category: " + randomCategory);
 };
 
 var getWinner = function(){
   if(word.toString() === currentWord.toString()){
-    createImage.src = "http://49.media.tumblr.com/tumblr_m571uudsz71rv5j9yo1_500.gif"
-     document.getElementById("attemptfield").innerHTML = "You win!";
-    document.getElementById("category").innerHTML = "";
+    $createImage.attr("src","http://49.media.tumblr.com/tumblr_m571uudsz71rv5j9yo1_500.gif");
+     $("#attemptfield").html("You win!");
+     $("#category").empty();
     $button = $("<button>Start Over </button>");
       $button.attr("id", "button1");
       $('h1').append($button);
@@ -141,10 +141,10 @@ var getWinner = function(){
       };
       $("#button1").on("click",refreshScreen);
   } else if (attempts===0){
-    document.getElementById("attemptfield").innerHTML = "You lose!";
-    document.getElementById("category").innerHTML = ""
+    $("#attemptfield").html("You lose!");
+    $("#category").empty();
     setTimeout(function() {
-    createImage.src = "http://45.media.tumblr.com/078de4dcc012c65f726f72c0b4910a8d/tumblr_nr53ie9eQn1re5o97o1_500.gif"
+    $createImage.attr("src","http://45.media.tumblr.com/078de4dcc012c65f726f72c0b4910a8d/tumblr_nr53ie9eQn1re5o97o1_500.gif");
       $button = $("<button>Start Over </button>");
       $button.attr("id", "button1");
       $('h1').append($button);
@@ -166,9 +166,9 @@ var setDisplayWordSize = function() {
 };
 
 var startGame = function() {
-  createImage = document.createElement('img');
-  createImage.src = 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Hangman-0.png'
-  document.getElementById('hangmanimage').appendChild(createImage);
+  $createImage = $("<img>");
+  $createImage.attr("src", "https://upload.wikimedia.org/wikipedia/commons/8/8b/Hangman-0.png");
+  $("#hangmanimage").append($createImage);
   won = false;
   attempts = 6;
   randomCategory = randomC();
