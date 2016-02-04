@@ -1,7 +1,9 @@
 body{
 
   background-image: url("http://eskipaper.com/images/aurora-borealis-wallpaper-20.jpg");
+
 }
+
 
 h1 {
   font-size: 50px;
@@ -13,40 +15,52 @@ h1 {
 
 #attemptfield {
   font-size: 25px;
-  color: white;
+  color: #FFFF99;;
   font-family: "Lucida Calligraphy";
   text-align: center;
-  text-shadow: -1px 0 turquoise, 0 2px turquoise, 1px 0 turquoise, 0 -1px turquoise;
+  text-shadow: -1px 0 turquoise, 0 0px turquoise, 1px 0 turquoise, 0 -1px turquoise;
 
 }
 
 #category {
   font-size: 25px;
-  color: white;
+  color: #FFFF99;
   font-family: "ALucida Calligraphy";
   text-align: center;
-    text-shadow: -1px 0 turquoise, 0 2px turquoise, 1px 0 turquoise, 0 -1px turquoise;
+  text-shadow: -1px 0 turquoise, 0 0px turquoise, 1px 0 turquoise, 0 -1px turquoise;
 
 }
 
 table {
   border: 5px solid none;
   position: relative;
-  top: 20px;
-  left: 50px;
+  top: 10px;
+  left: 60px;
 
 }
 
 img {
   float: right;
   position: relative;
-  right: 350px;
-  top: 40px;
-  padding: 20px;
+  right: 500px;
+  top: 20px;
+  padding: 10px;
   height: 350px;
   width: 350px;
+  opacity: 0.8;
+  border-radius: 25%;
 }
 
+#button1{
+  border: 1px solid turquoise;
+  background-color: transparent;
+  color: white;
+  font-size: 30px;
+  font font-weight: bold;
+  position: flexible;
+  top: 300px;
+  left: 300px;
+}
 
 td {
   border: 2px solid turquoise;
@@ -67,13 +81,27 @@ td:hover{
 .mainDiv {
   border: 2px solid none;
      text-align: center;
-      padding-top: 20px
+      padding-top: 20px;
+      font-size: 15px;
+      color: white;
+        text-shadow: -1px 0 turquoise, 0 2px turquoise, 1px 0 turquoise, 0 -1px turquoise;
+
 }
 .cell {
-  border: 2px solid none;
+  border-bottom: 2px solid turquoise;
   display: inline-block;
   padding: 30px;
-  font-size: 15px;
+  font-size:40px;
+  width: 30px;
 }
+
+.cell.no-border {
+  border: none;
+}
+
+
+
+
+
 
 
