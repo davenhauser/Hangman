@@ -10,18 +10,20 @@ var won;
 var createImage;
 var $resetButton = $("#button")
 var button;
-var audio;
+var $audio = $("#sound")[0];
 
-//var abcBoard = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P",
-//"Q","R","S","T","U","V","W","X","Y","Z"];
+// Return a random category
+var randomC = function () {
+  return categories[Math.floor(Math.random() * (categories.length))];
+}
+
 
 var randomNum = function (max) {
   return Math.floor(Math.random() * max);
 }
 
-var randomC = function () {
-  return categories[Math.floor(Math.random() * (categories.length))];
-}
+// Every word is an array for itself and is contained within an array
+// that represents a category, which is contained in yet another array.
 
 var getRW = function (){
   randomWord = [[["S","H","A","R","K"],["T","I","G","E","R"],["P","E","N","G","U","I","N"],
@@ -136,8 +138,7 @@ var getWinner = function(){
     $createImage.attr("src","http://49.media.tumblr.com/tumblr_m571uudsz71rv5j9yo1_500.gif");
     $("#attemptfield").html("You win!");
     $("#category").empty();
-    audio = $("#sound")[0];
-    audio.play();
+    $audio.play();
     $button = $("<button>Start Over </button>");
     $button.attr("id", "button1");
     $('h1').append($button);
@@ -148,6 +149,8 @@ var getWinner = function(){
   } else if (attempts===0){
     $("#attemptfield").html("You lose!");
     $("#category").empty();
+    $audio.attr("src","sounds/buttonPush.mp3");
+    $audio.play();
     //$audio = $("<audio></audio>")
     //$audio.attr("src","file:///Users/davenhauser/Music/iTunes/iTunes%20Media/Music/SoundBible.com/Unknown%20Album/Button%20Push%20Sound-SoundBible.com-685166460.mp3")
     //$("sound").append($audio);
