@@ -11,6 +11,7 @@ var createImage;
 var $resetButton = $("#button")
 var button;
 var $audio = $("#sound")[0];
+var loser = new Audio("sounds/buttonPush.mp3")
 
 // Return a random category
 var randomC = function () {
@@ -83,6 +84,8 @@ function getLetter(evt){
   var input = this.innerHTML;
   $(this).css('visibility', 'hidden');
   console.log(input);
+  var clickSound = new Audio("sounds/clicksound.mp3")
+  clickSound.play();
   var tellMeIfFound = false;
   var gameOver = false;
 
@@ -138,7 +141,8 @@ var getWinner = function(){
     $createImage.attr("src","http://49.media.tumblr.com/tumblr_m571uudsz71rv5j9yo1_500.gif");
     $("#attemptfield").html("You win!");
     $("#category").empty();
-    $audio.play();
+    var clap = new Audio("sounds/fakeApplause.mp3")
+    clap.play();
     $button = $("<button>Start Over </button>");
     $button.attr("id", "button1");
     $('h1').append($button);
@@ -147,12 +151,17 @@ var getWinner = function(){
     };
     $("#button1").on("click",refreshScreen);
   } else if (attempts===0){
+
+    loser.play();
+
+    $createImage.attr("src","http://45.media.tumblr.com/078de4dcc012c65f726f72c0b4910a8d/tumblr_nr53ie9eQn1re5o97o1_500.gif");
+   $button = $("<button>Start Over</button>");
     $("#attemptfield").html("You lose!");
     $("#category").empty();
-    $audio.attr("src","sounds/buttonPush.mp3");
-    $audio.play();
+    //$audio.attr("src","../sounds/buttonPush.mp3");
+    //$audio.play();
     //$audio = $("<audio></audio>")
-    //$audio.attr("src","file:///Users/davenhauser/Music/iTunes/iTunes%20Media/Music/SoundBible.com/Unknown%20Album/Button%20Push%20Sound-SoundBible.com-685166460.mp3")
+    //$audio.attr("src","../sounds/buu  file:///Users/davenhauser/Music/iTunes/iTunes%20Media/Music/SoundBible.com/Unknown%20Album/Button%20Push%20Sound-SoundBible.com-685166460.mp3")
     //$("sound").append($audio);
     //$audio.attr("preload", "auto")
 
