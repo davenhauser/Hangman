@@ -11,7 +11,7 @@ var createImage;
 var $resetButton = $("#button")
 var button;
 var $audio = $("#sound")[0];
-var loser = new Audio("sounds/buttonPush.mp3")
+
 
 // Return a random category
 var randomC = function () {
@@ -151,7 +151,7 @@ var getWinner = function(){
     };
     $("#button1").on("click",refreshScreen);
   } else if (attempts===0){
-
+    var loser = new Audio("sounds/buttonPush.mp3")
     loser.play();
 
     $createImage.attr("src","http://45.media.tumblr.com/078de4dcc012c65f726f72c0b4910a8d/tumblr_nr53ie9eQn1re5o97o1_500.gif");
@@ -196,7 +196,6 @@ var startGame = function() {
   getRW();
   setDisplayWordSize();
   updateStats();
-}
 
 startGame();
 
