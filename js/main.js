@@ -1,30 +1,26 @@
 console.log("loaded")
-
 var word = [];
 var currentWord;
 var randomWord;
 var randomCategory;
 var categories = ["ANIMALS","CITIES","COUNTRIES","RIVERS"];
 var attempts;
-var won;
 var createImage;
 var $resetButton = $("#button")
 var button;
-var $audio = $("#sound")[0];
 
+// Functions to return a random category and word
 
-// Return a random category
 var randomC = function () {
   return categories[Math.floor(Math.random() * (categories.length))];
 }
-
 
 var randomNum = function (max) {
   return Math.floor(Math.random() * max);
 }
 
 // Every word is an array for itself and is contained within an array
-// that represents a category, which is contained in yet another array.
+// that represents a category which is contained in yet another array.
 
 var getRW = function (){
   randomWord = [[["S","H","A","R","K"],["T","I","G","E","R"],["P","E","N","G","U","I","N"],
@@ -36,6 +32,9 @@ var getRW = function (){
   [["T","H","A","M","E","S"],["R","H","O","N","E"],["N","I","L","E"],["A","M","A","Z","O","N"],
   ["M","I","S","S","I","S","S","I","P","P","I"]]];
   console.log(randomWord[0]);
+
+// Assigning words to categories.
+
   if (randomCategory === categories[0]){
     currentWord = randomWord[0][randomNum(randomWord[0].length)];
   } else if (randomCategory === categories[1]){
@@ -47,39 +46,14 @@ var getRW = function (){
   }
 }
 
-
-
-
-
-    // Data Model
-
-
-
-
-
-  //1. Each letter that is selected on the abcBoard will be added to the word array, which will build the final word.
-  // I might have to create a separate array for each letter, since they need to be in correct order to build the
-  // searchedWord, which with this
-  // is not given. --> ["a"]+["b"] = "ab"
-
-
-
-  // if the input equals an index of the searched word, the same index of
-  // printed word will equal the input.
-
-
-
-  //var letter = $("table")
-  //selectLetter(letter)
-
-
-  // depending on which letter you click, the console will print that specific letter.
+// depending on which letter you click, the console will print that specific letter.
 
 for (var i= 0; i<26; i++){
   $("#letter"+i).on("click", getLetter);
 
 }
 
+// Each letter on which you click, will return that same letter.
 function getLetter(evt){
   var input = this.innerHTML;
   $(this).css('visibility', 'hidden');
@@ -89,7 +63,7 @@ function getLetter(evt){
   var tellMeIfFound = false;
   var gameOver = false;
 
-  // prints each letter to the correct cell
+// print each letter to the correct cell
 
   for(var i= 0; i<currentWord.length; i++){
     if(input === currentWord[i]){
@@ -101,17 +75,18 @@ function getLetter(evt){
       tellMeIfFound = true;
     }
   }
-  //for(attempts=9; attempts>=0; attempts--){
-  if (!tellMeIfFound) { // checking if it is "not false"
-    attempts -= 1;     // if tellMeIfFound is true it will be "not true" - if (tellMeIfFound===false);
+
+  if (!tellMeIfFound) { // if (tellMeIfFound===false);
+    attempts -= 1;
     if (attempts<0){
       attempts = 0
-      alert("No cheating! You have already lost!")
-
+      alert("No cheating! You have already lost!");
+      window.location = window.location;
     }
   }
 
-//for (var i=6; i>=0; i--)
+//Changing the image of the hangman depending on number to attempts
+
   if (attempts === 6){
      $createImage.attr("src",'https://upload.wikimedia.org/wikipedia/commons/8/8b/Hangman-0.png');
   }else if (attempts === 5){
@@ -136,6 +111,7 @@ var updateStats = function() {
   $("#category").html("Category: " + randomCategory);
 };
 
+// getWinner function with winning and losing conditions
 var getWinner = function(){
   if(word.toString() === currentWord.toString()){
     $createImage.attr("src","http://49.media.tumblr.com/tumblr_m571uudsz71rv5j9yo1_500.gif");
@@ -143,49 +119,39 @@ var getWinner = function(){
     $("#category").empty();
     var clap = new Audio("sounds/fakeApplause.mp3")
     clap.play();
-    $button = $("<button>Start Over </button>");
+    $button = $("<button>Start Over</button>");
     $button.attr("id", "button1");
     $('h1').append($button);
     var refreshScreen = function(evt) {
       window.location = window.location;
     };
-    $("#button1").on("click",refreshScreen);
-  } else if (attempts===0){
+  $("#button1").on("click",refreshScreen);
+    } else if (attempts===0){
     var loser = new Audio("sounds/buttonPush.mp3")
     loser.play();
-
     $createImage.attr("src","http://45.media.tumblr.com/078de4dcc012c65f726f72c0b4910a8d/tumblr_nr53ie9eQn1re5o97o1_500.gif");
-   $button = $("<button>Start Over</button>");
+    $button = $("<button>Start Over</button>");
     $("#attemptfield").html("You lose!");
     $("#category").empty();
-    //$audio.attr("src","../sounds/buttonPush.mp3");
-    //$audio.play();
-    //$audio = $("<audio></audio>")
-    //$audio.attr("src","../sounds/buu  file:///Users/davenhauser/Music/iTunes/iTunes%20Media/Music/SoundBible.com/Unknown%20Album/Button%20Push%20Sound-SoundBible.com-685166460.mp3")
-    //$("sound").append($audio);
-    //$audio.attr("preload", "auto")
+    $createImage.attr("src","http://45.media.tumblr.com/078de4dcc012c65f726f72c0b4910a8d/tumblr_nr53ie9eQn1re5o97o1_500.gif");
+    $button = $("<button>Start Over</button>");
+    $button.attr("id", "button1");
+    $('h1').append($button);
+    var refreshScreen = function(evt) {
+    window.location = window.location;
+    }
+  $("#button1").on("click",refreshScreen);
 
-      setTimeout(function() {
-      $createImage.attr("src","http://45.media.tumblr.com/078de4dcc012c65f726f72c0b4910a8d/tumblr_nr53ie9eQn1re5o97o1_500.gif");
-      $button = $("<button>Start Over</button>");
-      $button.attr("id", "button1");
-      $('h1').append($button);
-      var refreshScreen = function(evt) {
-        window.location = window.location;
-      }
-        $("#button1").on("click",refreshScreen);
-    }, 1000);
   }
 }
-
-
+// Shows the player how many letter the searched word has
 var setDisplayWordSize = function() {
   var $divs = $('.cell');
   for (var i = 0; i < $divs.length - currentWord.length; i++) {
     $divs.eq($divs.length - i - 1).hide();
   }
 };
-
+// startGame conditions
 var startGame = function() {
   $createImage = $("<img>");
   $createImage.attr("src", "https://upload.wikimedia.org/wikipedia/commons/8/8b/Hangman-0.png");
@@ -196,9 +162,9 @@ var startGame = function() {
   getRW();
   setDisplayWordSize();
   updateStats();
+}
 
 startGame();
-
 
 
 
