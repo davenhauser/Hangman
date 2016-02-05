@@ -29,26 +29,5 @@ Just follow this [link](http://davenhauser.github.io/Hangman/) and you're ready 
 
 #### Planned features and unsolved problems
 
-There are a couple of features that I wish to further develop or implement. They can be found under the follwing [Trello Link for my Hangman Game.](https://trello.com/b/j6nbSLfb/project-1-hangman)
+There are a couple of features that I wish to further develop or implement. They can be found under the follwing [Trello Link for my Hangman Game.](https://trello.com/b/j6nbSLfb/project-1-hangman). You will aslo find my user stories there!
 
-
-
- that I was able to design my game with the help 
-
-
-	
-1. I started out linking my **CSS** and **JAVASCRIPT** to my **HTML** in order to make sure everything would work correctly together. 
-2. Then I set up a very basic structure of **HTML** and **CSS** in order to be able visualize the game more easily in the browser.
-3. Once this was done I started working on my functions in **JAVASCRIPT**, 
-
-
-
-
-clicking on the letters  and will need to guess the The goal of the game is to guess 
-
-
-1. As a player , I want to be able to change category, so I can skip the ones I am not interested in.
-
-2. As a player, I want to be able to see how many attempts I have (left), in order to have a better overview.
-
-3. As a player, I want to know the looked-after word, even if I lose the game. 
